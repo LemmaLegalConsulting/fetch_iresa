@@ -1,145 +1,145 @@
-Category,Subcategory,subcategory_description_de
-finanziell,kommunale_eingliederungsleistungen_kinderbetreuung_SGBII,Kinderbetreuung oder Angehörigenpflege während beruflicher Eingliederung (Jobcenter)
-arbeit,kommunale_eingliederungsleistungen_kinderbetreuung_SGBII,Kinderbetreuung oder Angehörigenpflege während beruflicher Eingliederung (Jobcenter)
-kinder_familie,kommunale_eingliederungsleistungen_kinderbetreuung_SGBII,Kinderbetreuung oder Angehörigenpflege während beruflicher Eingliederung (Jobcenter)
-finanziell,kommunale_eingliederungsleistungen_schuldnerberatung_SGBII,Schuldnerberatung während beruflicher Eingliederung (Jobcenter)
-arbeit,kommunale_eingliederungsleistungen_schuldnerberatung_SGBII,Schuldnerberatung während beruflicher Eingliederung (Jobcenter)
-finanziell,kommunale_eingliederungsleistungen_psychosozial_SGBII,Psychosoziale Betreuung während beruflicher Eingliederung (Jobcenter)
-arbeit,kommunale_eingliederungsleistungen_psychosozial_SGBII,Psychosoziale Betreuung während beruflicher Eingliederung (Jobcenter)
-krankheit,kommunale_eingliederungsleistungen_psychosozial_SGBII,Psychosoziale Betreuung während beruflicher Eingliederung (Jobcenter)
-finanziell,kommunale_eingliederungsleistungen_suchtberatung_SGBII,Suchtberatung während beruflicher Eingliederung (Jobcenter)
-arbeit,kommunale_eingliederungsleistungen_suchtberatung_SGBII,Suchtberatung während beruflicher Eingliederung (Jobcenter)
-krankheit,kommunale_eingliederungsleistungen_suchtberatung_SGBII,Suchtberatung während beruflicher Eingliederung (Jobcenter)
-finanziell,einstiegsgeld_SGBII,Einstiegsgeld (Arbeitsagentur)
-arbeit,einstiegsgeld_SGBII,Einstiegsgeld (Arbeitsagentur)
-finanziell,eingliederung_selbstständiger_SGBII,Zuschüsse und Darlehen für Selbstständige (Arbeitsagentur)
-arbeit,eingliederung_selbstständiger_SGBII,Zuschüsse und Darlehen für Selbstständige (Arbeitsagentur)
-finanziell,wegfall_hilfebeduerftigkeit_SGBII,Förderung bei Wegfall der Hilfebedürftigkeit (Arbeitsagentur)
-arbeit,wegfall_hilfebeduerftigkeit_SGBII,Förderung bei Wegfall der Hilfebedürftigkeit (Arbeitsagentur)
-finanziell,schwer_erreichbare_junge_menschen_SGBII,Unterstützung für schwer erreichbare junge Menschen (Arbeitsagentur)
-arbeit,schwer_erreichbare_junge_menschen_SGBII,Unterstützung für schwer erreichbare junge Menschen (Arbeitsagentur)
-kinder_familie,schwer_erreichbare_junge_menschen_SGBII,Unterstützung für schwer erreichbare junge Menschen (Arbeitsagentur)
-finanziell,ganzheitliche_betreuung_SGBII,Ganzheitliche Betreuung und Coaching zum Aufbau der Beschäftigungsfähigkeit (Arbeitsagentur)
-arbeit,ganzheitliche_betreuung_SGBII,Ganzheitliche Betreuung und Coaching zum Aufbau der Beschäftigungsfähigkeit (Arbeitsagentur)
-finanziell,grundsicherungsgeld_SGBII,Bürgergeld (Jobcenter)
-bildung,bildung_teilhabe_SGBII,Sonderbedarf bzw. Bildung und Teilhabe (SGB II)
-finanziell,bildung_teilhabe_SGBII,Sonderbedarf bzw. Bildung und Teilhabe (SGB II)
-finanziell,unabweisbarer_bedarf_SGBII,"Unabweisbarer Bedarf, z. B. Reparatur oder Einlagerung"
-wohnen,bildung_teilhabe_SGBII,Sonderbedarf bzw. Bildung und Teilhabe (SGB II)
-kinder_familie,bildung_teilhabe_SGBII,Sonderbedarf bzw. Bildung und Teilhabe (SGB II)
-finanziell,zuschuesse_kranken_pflegeversicherung_SGBII,Zuschüsse zur privaten Kranken- und Pflegeversicherung (Arbeitsagentur)
-krankheit,zuschuesse_kranken_pflegeversicherung_SGBII,Zuschüsse zur privaten Kranken- und Pflegeversicherung (Arbeitsagentur)
-finanziell,leistungen_auszubildende_SGBII,Leistungen für Auszubildende (Arbeitsagentur bzw. Jobcenter)
-bildung,leistungen_auszubildende_SGBII,Leistungen für Auszubildende (Arbeitsagentur bzw. Jobcenter)
-krankheit,praevention_SGBV,"Präventionsleistungen, z. B. Impfungen, Vorsorgeuntersuchungen und Gesundheitskurse (gesetzliche Krankenkasse)"
-krankheit,schutzimpfungen_SGBV,Schutzimpfungen (gesetzliche Krankenkasse)
-krankheit,prep_SGBV,HIV-PrEP / Präexpositionsprophylaxe (gesetzliche Krankenkasse)
-krankheit,digitale_gesundheitskompetenz_SGBV,Leistungen zur digitalen Gesundheitskompetenz (gesetzliche Krankenkasse)
-krankheit,zahnprophylaxe_kinder_SGBV,Zahnprophylaxe bis zum 18. Lebensjahr (gesetzliche Krankenkasse)
-kinder_familie,zahnprophylaxe_kinder_SGBV,Zahnprophylaxe bis zum 18. Lebensjahr (gesetzliche Krankenkasse)
-krankheit,zahnprophylaxe_pflegebehinderung_SGBV,Zahnprophylaxe bei Pflegebedürftigen und Menschen mit Behinderungen (gesetzliche Krankenkasse)
-pflege,zahnprophylaxe_pflegebehinderung_SGBV,Zahnprophylaxe bei Pflegebedürftigen und Menschen mit Behinderungen (gesetzliche Krankenkasse)
-behinderung,zahnprophylaxe_pflegebehinderung_SGBV,Zahnprophylaxe bei Pflegebedürftigen und Menschen mit Behinderungen (gesetzliche Krankenkasse)
-krankheit,medizinische_vorsorgeleistungen_SGBV,Medizinische Vorsorgeleistungen (gesetzliche Krankenkasse)
-krankheit,medizinische_vorsorge_eltern_SGBV,Medizinische Vorsorge für Mütter und Väter (gesetzliche Krankenkasse)
-kinder_familie,medizinische_vorsorge_eltern_SGBV,Medizinische Vorsorge für Mütter und Väter (gesetzliche Krankenkasse)
-krankheit,empfaengnisverhuetung_SGBV,Beratung über Empfängnisverhütung und empfängnisregelnde Mittel (gesetzliche Krankenkasse)
-kinder_familie,empfaengnisverhuetung_SGBV,Beratung über Empfängnisverhütung und empfängnisregelnde Mittel (gesetzliche Krankenkasse)
-krankheit,schwangerschaftsabbruch_SGBV,Leistungen bei Schwangerschaftsabbruch und Sterilisation (gesetzliche Krankenkasse)
-kinder_familie,schwangerschaftsabbruch_SGBV,Leistungen bei Schwangerschaftsabbruch und Sterilisation (gesetzliche Krankenkasse)
-krankheit,hebamme_SGBV,Ärztliche Betreuung und Hebammenhilfe rund um die Schwangerschaft (gesetzliche Krankenkasse)
-kinder_familie,hebamme_SGBV,Ärztliche Betreuung und Hebammenhilfe rund um die Schwangerschaft (gesetzliche Krankenkasse)
-krankheit,arzneimittel_schwangere_SGBV,"Versorgung mit Arznei-, Verband-, Heil- und Hilfsmitteln während Schwangerschaft und Entbindung (gesetzliche Krankenkasse)"
-kinder_familie,arzneimittel_schwangere_SGBV,"Versorgung mit Arznei-, Verband-, Heil- und Hilfsmitteln während Schwangerschaft und Entbindung (gesetzliche Krankenkasse)"
-krankheit,entbindung_SGBV,Ambulante oder stationäre Entbindung (gesetzliche Krankenkasse)
-kinder_familie,entbindung_SGBV,Ambulante oder stationäre Entbindung (gesetzliche Krankenkasse)
-krankheit,haeusliche_pflege_SGBV,Wegen Schwangerschaft oder Entbindung erforderliche häusliche Pflege (gesetzliche Krankenkasse)
-kinder_familie,haeusliche_pflege_SGBV,Wegen Schwangerschaft oder Entbindung erforderliche häusliche Pflege (gesetzliche Krankenkasse)
-krankheit,haushaltshilfe_SGBV,Wegen Schwangerschaft oder Entbindung erforderliche Haushaltshilfe (gesetzliche Krankenkasse)
-kinder_familie,haushaltshilfe_SGBV,Wegen Schwangerschaft oder Entbindung erforderliche Haushaltshilfe (gesetzliche Krankenkasse)
-kinder_familie,mutterschaftsgeld_SGBV,Mutterschaftsgeld (gesetzliche Krankenkasse)
-krankheit,gesundheitsuntersuchungen_SGBV,"Gesundheitsuntersuchungen, z. B. Krebsfrüherkennung (gesetzliche Krankenkasse)"
-krankheit,gesundheitsuntersuchungen_kiju_SGBV,Gesundheitsuntersuchungen für Kinder und Jugendliche (gesetzliche Krankenkasse)
-kinder_familie,gesundheitsuntersuchungen_kiju_SGBV,Gesundheitsuntersuchungen für Kinder und Jugendliche (gesetzliche Krankenkasse)
-krankheit,krankenbehandlung_SGBV,Krankenbehandlung (gesetzliche Krankenversicherung)
-krankheit,kieferorthopaede_SGBV,Kieferorthopädische Behandlung (gesetzliche Krankenversicherung)
-krankheit,arznei_verbandmittel_SGBV,Arznei- und Verbandmittel (gesetzliche Krankenversicherung)
-krankheit,heilmittel_SGBV,Heilmittel (gesetzliche Krankenversicherung)
-krankheit,hilfsmittel_SGBV,Hilfsmittel (gesetzliche Krankenversicherung)
-krankheit,reha_SGBV,Ambulante Rehabilitationsleistungen (gesetzliche Krankenversicherung)
-krankheit,krankengeld_SGBV,Krankengeld (gesetzliche Krankenversicherung)
-krankheit,zahnersatz_SGBV,Zahnersatz (gesetzliche Krankenversicherung)
-krankheit,aerztliche_behandlung_SGBVI,Ärztliche Behandlung (gesetzliche Rentenversicherung)
-rente,aerztliche_behandlung_SGBVI,Ärztliche Behandlung (gesetzliche Rentenversicherung)
-krankheit,arznei_verbandsmittel_SGBVI,Arznei- und Verbandsmittel (gesetzliche Rentenversicherung)
-rente,arznei_verbandsmittel_SGBVI,Arznei- und Verbandsmittel (gesetzliche Rentenversicherung)
-krankheit,heilmittel_SGBVI,Heilmittel (gesetzliche Rentenversicherung)
-rente,heilmittel_SGBVI,Heilmittel (gesetzliche Rentenversicherung)
-krankheit,psychotherapie_SGBVI,Psychotherapie (gesetzliche Rentenversicherung)
-rente,psychotherapie_SGBVI,Psychotherapie (gesetzliche Rentenversicherung)
-krankheit,hilfsmittel_SGBVI,Hilfsmittel (gesetzliche Rentenversicherung)
-rente,hilfsmittel_SGBVI,Hilfsmittel (gesetzliche Rentenversicherung)
-krankheit,digitale_gesundheitsanwendungen_SGBVI,Digitale Gesundheitsanwendungen (gesetzliche Rentenversicherung)
-rente,digitale_gesundheitsanwendungen_SGBVI,Digitale Gesundheitsanwendungen (gesetzliche Rentenversicherung)
-krankheit,belastungserprobung_arbeitstherapie_SGBVI,Belastungserprobung und Arbeitstherapie (gesetzliche Rentenversicherung)
-rente,belastungserprobung_arbeitstherapie_SGBVI,Belastungserprobung und Arbeitstherapie (gesetzliche Rentenversicherung)
-krankheit,sonstige_medizinische_reha_SGBVI,Sonstige gesundheitliche Leistungen / medizinische Rehabilitation (gesetzliche Rentenversicherung)
-rente,sonstige_medizinische_reha_SGBVI,Sonstige gesundheitliche Leistungen / medizinische Rehabilitation (gesetzliche Rentenversicherung)
-rente,regelaltersrente_SGBVI,Regelaltersrente (gesetzliche Rentenversicherung)
-rente,altersrente_langjaehrige_SGBVI,Altersrente für langjährig Versicherte (gesetzliche Rentenversicherung)
-rente,altersrente_schwerbehinderte_SGBVI,Altersrente für schwerbehinderte Menschen (gesetzliche Rentenversicherung)
-behinderung,altersrente_schwerbehinderte_SGBVI,Altersrente für schwerbehinderte Menschen (gesetzliche Rentenversicherung)
-rente,altersrente_besonders_langjaehrige_SGBVI,Altersrente für besonders langjährig Versicherte (gesetzliche Rentenversicherung)
-rente,altersrente_bergleute_SGBVI,Altersrente für langjährig unter Tage beschäftigte Bergleute (gesetzliche Rentenversicherung)
-rente,rente_teil_erwerbsminderung_SGBVI,Rente wegen teilweiser Erwerbsminderung (gesetzliche Rentenversicherung)
-arbeit,rente_teil_erwerbsminderung_SGBVI,Rente wegen teilweiser Erwerbsminderung (gesetzliche Rentenversicherung)
-krankheit,rente_teil_erwerbsminderung_SGBVI,Rente wegen teilweiser Erwerbsminderung (gesetzliche Rentenversicherung)
-rente,rente_volle_erwerbsminderung_SGBVI,Rente wegen voller Erwerbsminderung (gesetzliche Rentenversicherung)
-arbeit,rente_volle_erwerbsminderung_SGBVI,Rente wegen voller Erwerbsminderung (gesetzliche Rentenversicherung)
-krankheit,rente_volle_erwerbsminderung_SGBVI,Rente wegen voller Erwerbsminderung (gesetzliche Rentenversicherung)
-finanziell,witwenrente_SGBVI,Witwenrente und Witwerrente (gesetzliche Rentenversicherung)
-rente,witwenrente_SGBVI,Witwenrente und Witwerrente (gesetzliche Rentenversicherung)
-finanziell,erziehungsrente_SGBVI,Erziehungsrente (gesetzliche Rentenversicherung)
-rente,erziehungsrente_SGBVI,Erziehungsrente (gesetzliche Rentenversicherung)
-finanziell,waisenrente_SGBVI,Waisenrente (gesetzliche Rentenversicherung)
-rente,waisenrente_SGBVI,Waisenrente (gesetzliche Rentenversicherung)
-kinder_familie,notbetreuung_SGBVIII,Betreuung und Versorgung eines Kindes in Notsituationen
-kinder_familie,schulpflicht_SGBVIII,Unterbringung zur Erfüllung der Schulpflicht
-kinder_familie,kitaplatz_SGBVIII,Kindertageseinrichtung (Kita) oder Kindertagespflege
-kinder_familie,hze_SGBVIII,Hilfe zur Erziehung
-kinder_familie,eingliederungshilfe_SGBVIII,Eingliederungshilfe für Kinder und Jugendliche mit seelischer Behinderung
-behinderung,eingliederungshilfe_SGBVIII,Eingliederungshilfe für Kinder und Jugendliche mit seelischer Behinderung
-kinder_familie,unterhaltsleistungen_SGBVIII,Leistungen zum Unterhalt des Kindes oder des Jugendlichen
-behinderung,unterhaltsleistungen_SGBVIII,Leistungen zum Unterhalt des Kindes oder des Jugendlichen
-kinder_familie,krankenhilfe_SGBVIII,Krankenhilfe
-kinder_familie,hjv_SGBVIII,Hilfe für junge Volljährige
-kinder_familie,nachbetreuung_SGBVIII,Nachbetreuung im Anschluss an Hilfe für junge Volljährige
-behinderung,eingliederungshilfe_SGBIX,"Eingliederungshilfe für Menschen mit körperlichen, geistigen oder Sinnesbeeinträchtigungen"
-behinderung,feststellung_behinderung_SGBIX,"Feststellung der Behinderung (Grad der Behinderung, Merkzeichen)"
-pflege,pflegesachleistung_SGBXI,Häusliche Pflegehilfe
-pflege,pflegegeld_SGBXI,Pflegegeld
-pflege,verhinderungspflege_SGBXI,Kostenerstattung bei Ersatzpflege (Verhinderungspflege)
-pflege,ergänzende_digitale_pflegeanwendungen_SGBXI,Ergänzende Unterstützung bei Nutzung digitaler Pflegeanwendungen
-pflege,pflegehilfsmittel_SGBXI,Pflegehilfsmittel und wohnumfeldverbessernde Maßnahmen
-pflege,versorgung_digitale_pflegeanwendung_SGBXI,Versorgung mit einer digitalen Pflegeanwendung
-pflege,tages_nachtpflege_SGBXI,Tagespflege und Nachtpflege
-pflege,kurzzeitpflege_SGBXI,Kurzzeitpflege
-pflege,rehaeinrichtungen_pflegebedürftige_SGBXI,Versorgung Pflegebedürftiger bei Vorsorge- oder Rehabilitationsleistungen der Pflegeperson
-pflege,vollstationaere_pflege_SGBXI,Vollstationäre Pflege
-pflege,soziale_sicherung_pflegeperson_SGBXI,Soziale Sicherung der Pflegeperson (Beiträge zu den Sozialversicherungen)
-pflege,zusaetzliche_leistungen_SGBXI,Zusätzliche Leistungen für Pflegepersonen bei Pflegezeit und kurzzeitiger Arbeitsverhinderung
-pflege,pflegekurse_SGBXI,Pflegekurse für Angehörige und ehrenamtliche Pflegepersonen
-pflege,kostenerstattung_alltagsunterstuetzung_SGBXI,Kostenerstattung für Angebote zur Unterstützung im Alltag
-pflege,entlastungsbetrag_SGBXI,Entlastungsbetrag
-pflege,zusatzleistung_ambulante_wohngruppen_SGBXI,Pauschaler Zuschlag für Pflegebedürftige in ambulant betreuten Wohngruppen
-pflege,zuschuss_gemeinsch_wohnform_SGBXI,Pauschaler Zuschuss bei Pflege in gemeinschaftlichen Wohnformen mit Versorgungsverträgen
-krankheit,krankenbehandlung_SGBXIV,Krankenbehandlung (Soziale Entschädigung)
-entschaedigung,krankenbehandlung_SGBXIV,Krankenbehandlung (Soziale Entschädigung)
-wohnen,wohngeld,Wohngeld
-finanziell,wohngeld,Wohngeld
-bildung,bafoeg,BAföG
-finanziell,bafoeg,BAföG
-kinder_familie,mutterschaftsgeld_muschg,Mutterschaftsgeld des Bundesamts für Soziale Sicherung (ohne gesetzliche Krankenversicherung)
-kinder_familie,elterngeld_beeg,Elterngeld
-kinder_familie,kindergeld_bkgg,Kindergeld der Familienkasse (nicht steuerliches Kindergeld)
-kinder_familie,kinderzuschlag_bkgg,Kinderzuschlag der Familienkasse für einkommensschwache Eltern
+Category,Subcategory,subcategory_description_de,subcategory_description_en_dev
+finanziell,kommunale_eingliederungsleistungen_kinderbetreuung_SGBII,Kinderbetreuung oder Angehörigenpflege während beruflicher Eingliederung (Jobcenter),childcare or care for relatives during vocational integration (job center)
+arbeit,kommunale_eingliederungsleistungen_kinderbetreuung_SGBII,Kinderbetreuung oder Angehörigenpflege während beruflicher Eingliederung (Jobcenter),childcare or care for relatives during vocational integration (job center)
+kinder_familie,kommunale_eingliederungsleistungen_kinderbetreuung_SGBII,Kinderbetreuung oder Angehörigenpflege während beruflicher Eingliederung (Jobcenter),childcare or care for relatives during vocational integration (job center)
+finanziell,kommunale_eingliederungsleistungen_schuldnerberatung_SGBII,Schuldnerberatung während beruflicher Eingliederung (Jobcenter),debt counseling during vocational integration (job center)
+arbeit,kommunale_eingliederungsleistungen_schuldnerberatung_SGBII,Schuldnerberatung während beruflicher Eingliederung (Jobcenter),debt counseling during vocational integration (job center)
+finanziell,kommunale_eingliederungsleistungen_psychosozial_SGBII,Psychosoziale Betreuung während beruflicher Eingliederung (Jobcenter),psychosocial support during vocational integration (job center)
+arbeit,kommunale_eingliederungsleistungen_psychosozial_SGBII,Psychosoziale Betreuung während beruflicher Eingliederung (Jobcenter),psychosocial support during vocational integration (job center)
+krankheit,kommunale_eingliederungsleistungen_psychosozial_SGBII,Psychosoziale Betreuung während beruflicher Eingliederung (Jobcenter),psychosocial support during vocational integration (job center)
+finanziell,kommunale_eingliederungsleistungen_suchtberatung_SGBII,Suchtberatung während beruflicher Eingliederung (Jobcenter),addiction counseling during vocational integration (job center)
+arbeit,kommunale_eingliederungsleistungen_suchtberatung_SGBII,Suchtberatung während beruflicher Eingliederung (Jobcenter),addiction counseling during vocational integration (job center)
+krankheit,kommunale_eingliederungsleistungen_suchtberatung_SGBII,Suchtberatung während beruflicher Eingliederung (Jobcenter),addiction counseling during vocational integration (job center)
+finanziell,einstiegsgeld_SGBII,Einstiegsgeld (Arbeitsagentur),Einstiegsgeld (employment agency)
+arbeit,einstiegsgeld_SGBII,Einstiegsgeld (Arbeitsagentur),Einstiegsgeld (employment agency)
+finanziell,eingliederung_selbstständiger_SGBII,Zuschüsse und Darlehen für Selbstständige (Arbeitsagentur),grants and loans for self-employed people (employment agency)
+arbeit,eingliederung_selbstständiger_SGBII,Zuschüsse und Darlehen für Selbstständige (Arbeitsagentur),grants and loans for self-employed people (employment agency)
+finanziell,wegfall_hilfebeduerftigkeit_SGBII,Förderung bei Wegfall der Hilfebedürftigkeit (Arbeitsagentur),Basic EN: Förderung for Wegfall der Hilfebedürftigkeit (employment agency)
+arbeit,wegfall_hilfebeduerftigkeit_SGBII,Förderung bei Wegfall der Hilfebedürftigkeit (Arbeitsagentur),Basic EN: Förderung for Wegfall der Hilfebedürftigkeit (employment agency)
+finanziell,schwer_erreichbare_junge_menschen_SGBII,Unterstützung für schwer erreichbare junge Menschen (Arbeitsagentur),support for hard-to-reach young people (employment agency)
+arbeit,schwer_erreichbare_junge_menschen_SGBII,Unterstützung für schwer erreichbare junge Menschen (Arbeitsagentur),support for hard-to-reach young people (employment agency)
+kinder_familie,schwer_erreichbare_junge_menschen_SGBII,Unterstützung für schwer erreichbare junge Menschen (Arbeitsagentur),support for hard-to-reach young people (employment agency)
+finanziell,ganzheitliche_betreuung_SGBII,Ganzheitliche Betreuung und Coaching zum Aufbau der Beschäftigungsfähigkeit (Arbeitsagentur),holistic support and coaching to build employability (employment agency)
+arbeit,ganzheitliche_betreuung_SGBII,Ganzheitliche Betreuung und Coaching zum Aufbau der Beschäftigungsfähigkeit (Arbeitsagentur),holistic support and coaching to build employability (employment agency)
+finanziell,grundsicherungsgeld_SGBII,Bürgergeld (Jobcenter),citizen benefit (job center)
+bildung,bildung_teilhabe_SGBII,Sonderbedarf bzw. Bildung und Teilhabe (SGB II),special needs and education/participation benefits (SGB II)
+finanziell,bildung_teilhabe_SGBII,Sonderbedarf bzw. Bildung und Teilhabe (SGB II),special needs and education/participation benefits (SGB II)
+finanziell,unabweisbarer_bedarf_SGBII,"Unabweisbarer Bedarf, z. B. Reparatur oder Einlagerung","urgent unavoidable need, z. B. repair or storage"
+wohnen,bildung_teilhabe_SGBII,Sonderbedarf bzw. Bildung und Teilhabe (SGB II),special needs and education/participation benefits (SGB II)
+kinder_familie,bildung_teilhabe_SGBII,Sonderbedarf bzw. Bildung und Teilhabe (SGB II),special needs and education/participation benefits (SGB II)
+finanziell,zuschuesse_kranken_pflegeversicherung_SGBII,Zuschüsse zur privaten Kranken- und Pflegeversicherung (Arbeitsagentur),Basic EN: Zuschüsse zur privaten Kranken- and careversicherung (employment agency)
+krankheit,zuschuesse_kranken_pflegeversicherung_SGBII,Zuschüsse zur privaten Kranken- und Pflegeversicherung (Arbeitsagentur),Basic EN: Zuschüsse zur privaten Kranken- and careversicherung (employment agency)
+finanziell,leistungen_auszubildende_SGBII,Leistungen für Auszubildende (Arbeitsagentur bzw. Jobcenter),benefits for trainees (employment agency bzw. job center)
+bildung,leistungen_auszubildende_SGBII,Leistungen für Auszubildende (Arbeitsagentur bzw. Jobcenter),benefits for trainees (employment agency bzw. job center)
+krankheit,praevention_SGBV,"Präventionsleistungen, z. B. Impfungen, Vorsorgeuntersuchungen und Gesundheitskurse (gesetzliche Krankenkasse)","preventive services, z. B. vaccinations, preventive checkups and health courses (statutory health insurance)"
+krankheit,schutzimpfungen_SGBV,Schutzimpfungen (gesetzliche Krankenkasse),Schutzimpfungen (statutory health insurance)
+krankheit,prep_SGBV,HIV-PrEP / Präexpositionsprophylaxe (gesetzliche Krankenkasse),HIV PrEP / pre-exposure prophylaxis (statutory health insurance)
+krankheit,digitale_gesundheitskompetenz_SGBV,Leistungen zur digitalen Gesundheitskompetenz (gesetzliche Krankenkasse),Basic EN: Leistungen zur digitalen Gesandheitskompetenz (statutory health insurance)
+krankheit,zahnprophylaxe_kinder_SGBV,Zahnprophylaxe bis zum 18. Lebensjahr (gesetzliche Krankenkasse),Basic EN: dental prophylaxis bis zum 18. Lebensjahr (statutory health insurance)
+kinder_familie,zahnprophylaxe_kinder_SGBV,Zahnprophylaxe bis zum 18. Lebensjahr (gesetzliche Krankenkasse),Basic EN: dental prophylaxis bis zum 18. Lebensjahr (statutory health insurance)
+krankheit,zahnprophylaxe_pflegebehinderung_SGBV,Zahnprophylaxe bei Pflegebedürftigen und Menschen mit Behinderungen (gesetzliche Krankenkasse),dental prophylaxis for carebedürftigen and Menschen with Behinderungen (statutory health insurance)
+pflege,zahnprophylaxe_pflegebehinderung_SGBV,Zahnprophylaxe bei Pflegebedürftigen und Menschen mit Behinderungen (gesetzliche Krankenkasse),dental prophylaxis for carebedürftigen and Menschen with Behinderungen (statutory health insurance)
+behinderung,zahnprophylaxe_pflegebehinderung_SGBV,Zahnprophylaxe bei Pflegebedürftigen und Menschen mit Behinderungen (gesetzliche Krankenkasse),dental prophylaxis for carebedürftigen and Menschen with Behinderungen (statutory health insurance)
+krankheit,medizinische_vorsorgeleistungen_SGBV,Medizinische Vorsorgeleistungen (gesetzliche Krankenkasse),medical preventive careleistungen (statutory health insurance)
+krankheit,medizinische_vorsorge_eltern_SGBV,Medizinische Vorsorge für Mütter und Väter (gesetzliche Krankenkasse),medical preventive care for Mütter and Väter (statutory health insurance)
+kinder_familie,medizinische_vorsorge_eltern_SGBV,Medizinische Vorsorge für Mütter und Väter (gesetzliche Krankenkasse),medical preventive care for Mütter and Väter (statutory health insurance)
+krankheit,empfaengnisverhuetung_SGBV,Beratung über Empfängnisverhütung und empfängnisregelnde Mittel (gesetzliche Krankenkasse),Basic EN: Beratung über Empfängnisverhütung and empfängnisregelnde Mittel (statutory health insurance)
+kinder_familie,empfaengnisverhuetung_SGBV,Beratung über Empfängnisverhütung und empfängnisregelnde Mittel (gesetzliche Krankenkasse),Basic EN: Beratung über Empfängnisverhütung and empfängnisregelnde Mittel (statutory health insurance)
+krankheit,schwangerschaftsabbruch_SGBV,Leistungen bei Schwangerschaftsabbruch und Sterilisation (gesetzliche Krankenkasse),Leistungen for pregnancysabbruch and sterilization (statutory health insurance)
+kinder_familie,schwangerschaftsabbruch_SGBV,Leistungen bei Schwangerschaftsabbruch und Sterilisation (gesetzliche Krankenkasse),Leistungen for pregnancysabbruch and sterilization (statutory health insurance)
+krankheit,hebamme_SGBV,Ärztliche Betreuung und Hebammenhilfe rund um die Schwangerschaft (gesetzliche Krankenkasse),Basic EN: Ärztliche Betreuung and Hebammenhilfe rand um die pregnancy (statutory health insurance)
+kinder_familie,hebamme_SGBV,Ärztliche Betreuung und Hebammenhilfe rund um die Schwangerschaft (gesetzliche Krankenkasse),Basic EN: Ärztliche Betreuung and Hebammenhilfe rand um die pregnancy (statutory health insurance)
+krankheit,arzneimittel_schwangere_SGBV,"Versorgung mit Arznei-, Verband-, Heil- und Hilfsmitteln während Schwangerschaft und Entbindung (gesetzliche Krankenkasse)","Versorgung with medication-, Verband-, Heil- and assistive devicesn during pregnancy and childbirth (statutory health insurance)"
+kinder_familie,arzneimittel_schwangere_SGBV,"Versorgung mit Arznei-, Verband-, Heil- und Hilfsmitteln während Schwangerschaft und Entbindung (gesetzliche Krankenkasse)","Versorgung with medication-, Verband-, Heil- and assistive devicesn during pregnancy and childbirth (statutory health insurance)"
+krankheit,entbindung_SGBV,Ambulante oder stationäre Entbindung (gesetzliche Krankenkasse),Ambulante or stationäre childbirth (statutory health insurance)
+kinder_familie,entbindung_SGBV,Ambulante oder stationäre Entbindung (gesetzliche Krankenkasse),Ambulante or stationäre childbirth (statutory health insurance)
+krankheit,haeusliche_pflege_SGBV,Wegen Schwangerschaft oder Entbindung erforderliche häusliche Pflege (gesetzliche Krankenkasse),Wegen pregnancy or childbirth erforderliche häusliche care (statutory health insurance)
+kinder_familie,haeusliche_pflege_SGBV,Wegen Schwangerschaft oder Entbindung erforderliche häusliche Pflege (gesetzliche Krankenkasse),Wegen pregnancy or childbirth erforderliche häusliche care (statutory health insurance)
+krankheit,haushaltshilfe_SGBV,Wegen Schwangerschaft oder Entbindung erforderliche Haushaltshilfe (gesetzliche Krankenkasse),Wegen pregnancy or childbirth erforderliche household help (statutory health insurance)
+kinder_familie,haushaltshilfe_SGBV,Wegen Schwangerschaft oder Entbindung erforderliche Haushaltshilfe (gesetzliche Krankenkasse),Wegen pregnancy or childbirth erforderliche household help (statutory health insurance)
+kinder_familie,mutterschaftsgeld_SGBV,Mutterschaftsgeld (gesetzliche Krankenkasse),maternity benefit (statutory health insurance)
+krankheit,gesundheitsuntersuchungen_SGBV,"Gesundheitsuntersuchungen, z. B. Krebsfrüherkennung (gesetzliche Krankenkasse)","health screenings, z. B. cancer screening (statutory health insurance)"
+krankheit,gesundheitsuntersuchungen_kiju_SGBV,Gesundheitsuntersuchungen für Kinder und Jugendliche (gesetzliche Krankenkasse),health screenings for Kinder and Jugendliche (statutory health insurance)
+kinder_familie,gesundheitsuntersuchungen_kiju_SGBV,Gesundheitsuntersuchungen für Kinder und Jugendliche (gesetzliche Krankenkasse),health screenings for Kinder and Jugendliche (statutory health insurance)
+krankheit,krankenbehandlung_SGBV,Krankenbehandlung (gesetzliche Krankenversicherung),medical treatment (statutory health insurance)
+krankheit,kieferorthopaede_SGBV,Kieferorthopädische Behandlung (gesetzliche Krankenversicherung),orthodontic treatment (statutory health insurance)
+krankheit,arznei_verbandmittel_SGBV,Arznei- und Verbandmittel (gesetzliche Krankenversicherung),medication- and dressings (statutory health insurance)
+krankheit,heilmittel_SGBV,Heilmittel (gesetzliche Krankenversicherung),therapeutic remedies (statutory health insurance)
+krankheit,hilfsmittel_SGBV,Hilfsmittel (gesetzliche Krankenversicherung),assistive devices (statutory health insurance)
+krankheit,reha_SGBV,Ambulante Rehabilitationsleistungen (gesetzliche Krankenversicherung),Ambulante Rehabilitationsleistungen (statutory health insurance)
+krankheit,krankengeld_SGBV,Krankengeld (gesetzliche Krankenversicherung),sickness benefit (statutory health insurance)
+krankheit,zahnersatz_SGBV,Zahnersatz (gesetzliche Krankenversicherung),dental prosthetics (statutory health insurance)
+krankheit,aerztliche_behandlung_SGBVI,Ärztliche Behandlung (gesetzliche Rentenversicherung),medical treatment by a physician (statutory pension insurance)
+rente,aerztliche_behandlung_SGBVI,Ärztliche Behandlung (gesetzliche Rentenversicherung),medical treatment by a physician (statutory pension insurance)
+krankheit,arznei_verbandsmittel_SGBVI,Arznei- und Verbandsmittel (gesetzliche Rentenversicherung),medication- and Verbandswithtel (statutory pension insurance)
+rente,arznei_verbandsmittel_SGBVI,Arznei- und Verbandsmittel (gesetzliche Rentenversicherung),medication- and Verbandswithtel (statutory pension insurance)
+krankheit,heilmittel_SGBVI,Heilmittel (gesetzliche Rentenversicherung),therapeutic remedies (statutory pension insurance)
+rente,heilmittel_SGBVI,Heilmittel (gesetzliche Rentenversicherung),therapeutic remedies (statutory pension insurance)
+krankheit,psychotherapie_SGBVI,Psychotherapie (gesetzliche Rentenversicherung),psychotherapy (statutory pension insurance)
+rente,psychotherapie_SGBVI,Psychotherapie (gesetzliche Rentenversicherung),psychotherapy (statutory pension insurance)
+krankheit,hilfsmittel_SGBVI,Hilfsmittel (gesetzliche Rentenversicherung),assistive devices (statutory pension insurance)
+rente,hilfsmittel_SGBVI,Hilfsmittel (gesetzliche Rentenversicherung),assistive devices (statutory pension insurance)
+krankheit,digitale_gesundheitsanwendungen_SGBVI,Digitale Gesundheitsanwendungen (gesetzliche Rentenversicherung),Digitale Gesandheitsanwendungen (statutory pension insurance)
+rente,digitale_gesundheitsanwendungen_SGBVI,Digitale Gesundheitsanwendungen (gesetzliche Rentenversicherung),Digitale Gesandheitsanwendungen (statutory pension insurance)
+krankheit,belastungserprobung_arbeitstherapie_SGBVI,Belastungserprobung und Arbeitstherapie (gesetzliche Rentenversicherung),work-capacity assessment and occupational therapy (statutory pension insurance)
+rente,belastungserprobung_arbeitstherapie_SGBVI,Belastungserprobung und Arbeitstherapie (gesetzliche Rentenversicherung),work-capacity assessment and occupational therapy (statutory pension insurance)
+krankheit,sonstige_medizinische_reha_SGBVI,Sonstige gesundheitliche Leistungen / medizinische Rehabilitation (gesetzliche Rentenversicherung),Sonstige gesandheitliche Leistungen / medizinische Rehabilitation (statutory pension insurance)
+rente,sonstige_medizinische_reha_SGBVI,Sonstige gesundheitliche Leistungen / medizinische Rehabilitation (gesetzliche Rentenversicherung),Sonstige gesandheitliche Leistungen / medizinische Rehabilitation (statutory pension insurance)
+rente,regelaltersrente_SGBVI,Regelaltersrente (gesetzliche Rentenversicherung),standard old-age pension (statutory pension insurance)
+rente,altersrente_langjaehrige_SGBVI,Altersrente für langjährig Versicherte (gesetzliche Rentenversicherung),old-age pension for langjährig Versicherte (statutory pension insurance)
+rente,altersrente_schwerbehinderte_SGBVI,Altersrente für schwerbehinderte Menschen (gesetzliche Rentenversicherung),old-age pension for schwerbehinderte Menschen (statutory pension insurance)
+behinderung,altersrente_schwerbehinderte_SGBVI,Altersrente für schwerbehinderte Menschen (gesetzliche Rentenversicherung),old-age pension for schwerbehinderte Menschen (statutory pension insurance)
+rente,altersrente_besonders_langjaehrige_SGBVI,Altersrente für besonders langjährig Versicherte (gesetzliche Rentenversicherung),old-age pension for besonders langjährig Versicherte (statutory pension insurance)
+rente,altersrente_bergleute_SGBVI,Altersrente für langjährig unter Tage beschäftigte Bergleute (gesetzliche Rentenversicherung),old-age pension for langjährig unter Tage beschäftigte Bergleute (statutory pension insurance)
+rente,rente_teil_erwerbsminderung_SGBVI,Rente wegen teilweiser Erwerbsminderung (gesetzliche Rentenversicherung),partial disability pension (statutory pension insurance)
+arbeit,rente_teil_erwerbsminderung_SGBVI,Rente wegen teilweiser Erwerbsminderung (gesetzliche Rentenversicherung),partial disability pension (statutory pension insurance)
+krankheit,rente_teil_erwerbsminderung_SGBVI,Rente wegen teilweiser Erwerbsminderung (gesetzliche Rentenversicherung),partial disability pension (statutory pension insurance)
+rente,rente_volle_erwerbsminderung_SGBVI,Rente wegen voller Erwerbsminderung (gesetzliche Rentenversicherung),full disability pension (statutory pension insurance)
+arbeit,rente_volle_erwerbsminderung_SGBVI,Rente wegen voller Erwerbsminderung (gesetzliche Rentenversicherung),full disability pension (statutory pension insurance)
+krankheit,rente_volle_erwerbsminderung_SGBVI,Rente wegen voller Erwerbsminderung (gesetzliche Rentenversicherung),full disability pension (statutory pension insurance)
+finanziell,witwenrente_SGBVI,Witwenrente und Witwerrente (gesetzliche Rentenversicherung),widow's and widower's pension (statutory pension insurance)
+rente,witwenrente_SGBVI,Witwenrente und Witwerrente (gesetzliche Rentenversicherung),widow's and widower's pension (statutory pension insurance)
+finanziell,erziehungsrente_SGBVI,Erziehungsrente (gesetzliche Rentenversicherung),child-raising pension (statutory pension insurance)
+rente,erziehungsrente_SGBVI,Erziehungsrente (gesetzliche Rentenversicherung),child-raising pension (statutory pension insurance)
+finanziell,waisenrente_SGBVI,Waisenrente (gesetzliche Rentenversicherung),orphan's pension (statutory pension insurance)
+rente,waisenrente_SGBVI,Waisenrente (gesetzliche Rentenversicherung),orphan's pension (statutory pension insurance)
+kinder_familie,notbetreuung_SGBVIII,Betreuung und Versorgung eines Kindes in Notsituationen,Betreuung and Versorgung eines Kindes in Notsituationen
+kinder_familie,schulpflicht_SGBVIII,Unterbringung zur Erfüllung der Schulpflicht,placement to fulfill compulsory schooling
+kinder_familie,kitaplatz_SGBVIII,Kindertageseinrichtung (Kita) oder Kindertagespflege,daycare center (Kita) or child day care
+kinder_familie,hze_SGBVIII,Hilfe zur Erziehung,educational support assistance
+kinder_familie,eingliederungshilfe_SGBVIII,Eingliederungshilfe für Kinder und Jugendliche mit seelischer Behinderung,integration assistance for Kinder and Jugendliche with mental disability
+behinderung,eingliederungshilfe_SGBVIII,Eingliederungshilfe für Kinder und Jugendliche mit seelischer Behinderung,integration assistance for Kinder and Jugendliche with mental disability
+kinder_familie,unterhaltsleistungen_SGBVIII,Leistungen zum Unterhalt des Kindes oder des Jugendlichen,Basic EN: Leistungen zum Unterhalt des Kindes or des Jugendlichen
+behinderung,unterhaltsleistungen_SGBVIII,Leistungen zum Unterhalt des Kindes oder des Jugendlichen,Basic EN: Leistungen zum Unterhalt des Kindes or des Jugendlichen
+kinder_familie,krankenhilfe_SGBVIII,Krankenhilfe,health assistance
+kinder_familie,hjv_SGBVIII,Hilfe für junge Volljährige,support for young adults
+kinder_familie,nachbetreuung_SGBVIII,Nachbetreuung im Anschluss an Hilfe für junge Volljährige,follow-up support im Anschluss an support for young adults
+behinderung,eingliederungshilfe_SGBIX,"Eingliederungshilfe für Menschen mit körperlichen, geistigen oder Sinnesbeeinträchtigungen","integration assistance for Menschen with physical, intellectual, or sensory impairments"
+behinderung,feststellung_behinderung_SGBIX,"Feststellung der Behinderung (Grad der Behinderung, Merkzeichen)","disability determination (degree of disability, disability markers)"
+pflege,pflegesachleistung_SGBXI,Häusliche Pflegehilfe,Häusliche carehilfe
+pflege,pflegegeld_SGBXI,Pflegegeld,care allowance
+pflege,verhinderungspflege_SGBXI,Kostenerstattung bei Ersatzpflege (Verhinderungspflege),Kostenerstattung for respite care (respite care)
+pflege,ergänzende_digitale_pflegeanwendungen_SGBXI,Ergänzende Unterstützung bei Nutzung digitaler Pflegeanwendungen,Ergänzende Unterstützung for Nutzung digitaler careanwendungen
+pflege,pflegehilfsmittel_SGBXI,Pflegehilfsmittel und wohnumfeldverbessernde Maßnahmen,carehilfswithtel and wohnumfeldverbessernde Maßnahmen
+pflege,versorgung_digitale_pflegeanwendung_SGBXI,Versorgung mit einer digitalen Pflegeanwendung,Versorgung with einer digitalen careanwendung
+pflege,tages_nachtpflege_SGBXI,Tagespflege und Nachtpflege,day and night care
+pflege,kurzzeitpflege_SGBXI,Kurzzeitpflege,short-term care
+pflege,rehaeinrichtungen_pflegebedürftige_SGBXI,Versorgung Pflegebedürftiger bei Vorsorge- oder Rehabilitationsleistungen der Pflegeperson,Basic EN: Versorgung carebedürftiger for Vorsorge- or Rehabilitationsleistungen der careperson
+pflege,vollstationaere_pflege_SGBXI,Vollstationäre Pflege,Vollstationäre care
+pflege,soziale_sicherung_pflegeperson_SGBXI,Soziale Sicherung der Pflegeperson (Beiträge zu den Sozialversicherungen),Basic EN: Soziale Sicherung der careperson (Beiträge zu den Sozialversicherungen)
+pflege,zusaetzliche_leistungen_SGBXI,Zusätzliche Leistungen für Pflegepersonen bei Pflegezeit und kurzzeitiger Arbeitsverhinderung,Zusätzliche Leistungen for carepersonen for carezeit and kurzzeitiger Arfortsverhinderung
+pflege,pflegekurse_SGBXI,Pflegekurse für Angehörige und ehrenamtliche Pflegepersonen,carekurse for Angehörige and ehrenamtliche carepersonen
+pflege,kostenerstattung_alltagsunterstuetzung_SGBXI,Kostenerstattung für Angebote zur Unterstützung im Alltag,Basic EN: Kostenerstattung for Angebote zur Unterstützung im Alltag
+pflege,entlastungsbetrag_SGBXI,Entlastungsbetrag,relief allowance
+pflege,zusatzleistung_ambulante_wohngruppen_SGBXI,Pauschaler Zuschlag für Pflegebedürftige in ambulant betreuten Wohngruppen,Pauschaler Zuschlag for carebedürftige in ambulant betreuten Wohngruppen
+pflege,zuschuss_gemeinsch_wohnform_SGBXI,Pauschaler Zuschuss bei Pflege in gemeinschaftlichen Wohnformen mit Versorgungsverträgen,Pauschaler Zuschuss for care in gemeinschaftlichen Wohnformen with Versorgungsverträgen
+krankheit,krankenbehandlung_SGBXIV,Krankenbehandlung (Soziale Entschädigung),medical treatment (social compensation)
+entschaedigung,krankenbehandlung_SGBXIV,Krankenbehandlung (Soziale Entschädigung),medical treatment (social compensation)
+wohnen,wohngeld,Wohngeld,housing benefit
+finanziell,wohngeld,Wohngeld,housing benefit
+bildung,bafoeg,BAföG,student financial aid (BAfoeG)
+finanziell,bafoeg,BAföG,student financial aid (BAfoeG)
+kinder_familie,mutterschaftsgeld_muschg,Mutterschaftsgeld des Bundesamts für Soziale Sicherung (ohne gesetzliche Krankenversicherung),Basic EN: maternity benefit des Federal Office for Social Security (ohne statutory health insurance)
+kinder_familie,elterngeld_beeg,Elterngeld,parental benefit
+kinder_familie,kindergeld_bkgg,Kindergeld der Familienkasse (nicht steuerliches Kindergeld),Basic EN: child benefit der family benefits office (nicht steuerliches child benefit)
+kinder_familie,kinderzuschlag_bkgg,Kinderzuschlag der Familienkasse für einkommensschwache Eltern,Basic EN: child supplement der family benefits office for einkommensschwache Eltern

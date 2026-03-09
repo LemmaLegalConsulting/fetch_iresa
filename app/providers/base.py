@@ -103,6 +103,60 @@ def _compute_taxonomy_hash(taxonomy: Any) -> str:
 _rendered_prompt_cache: Dict[Tuple[str, str, str], Tuple[str, str]] = {}
 
 
+def _is_prompt_visible_taxonomy_field(field_name: str) -> bool:
+    """Return True when a taxonomy field should be included in prompt text."""
+    key = (field_name or "").strip().lower()
+    if not key:
+        return False
+    # Keep developer-only reference columns out of LLM prompts.
+    if key.endswith("_dev") or "developer" in key:
+        return False
+    return True
+
+
+def _taxonomy_values_for_prompt(row: Any) -> List[str]:
+    """Extract prompt-visible taxonomy values from a row-like object."""
+    values: List[str] = []
+
+    if isinstance(row, dict):
+        for key, val in row.items():
+            if not _is_prompt_visible_taxonomy_field(str(key)):
+                continue
+            if val is None:
+                continue
+            sval = str(val).strip()
+            if sval:
+                values.append(sval)
+        return values
+
+    if hasattr(row, "items"):
+        try:
+            for key, val in row.items():
+                if not _is_prompt_visible_taxonomy_field(str(key)):
+                    continue
+                if val is None:
+                    continue
+                sval = str(val).strip()
+                if sval:
+                    values.append(sval)
+            return values
+        except Exception:
+            pass
+
+    # Fallback for list/tuple-like rows where column names are not available.
+    try:
+        for val in row:
+            if val is None:
+                continue
+            sval = str(val).strip()
+            if sval:
+                values.append(sval)
+    except Exception:
+        pass
+
+    return values
+
+
 def load_prompt(
     provider_type: str,
     taxonomy: Any,
@@ -148,8 +202,7 @@ def load_prompt(
 
     if hasattr(taxonomy, "iterrows"):
         for _, row in taxonomy.iterrows():
-            # Drop Nones/NaNs and convert to strings
-            values = [str(v) for v in row.tolist() if v is not None and str(v) != ""]
+            values = _taxonomy_values_for_prompt(row)
             if values:
                 label = " > ".join(values)
                 parts.append(label)
@@ -159,13 +212,7 @@ def load_prompt(
         for row in taxonomy:
             if row is None:
                 continue
-            if isinstance(row, dict):
-                values = [
-                    str(v) for v in row.values() if v is not None and str(v) != ""
-                ]
-            else:
-                # assume iterable
-                values = [str(v) for v in row if v is not None and str(v) != ""]
+            values = _taxonomy_values_for_prompt(row)
             if values:
                 label = " > ".join(values)
                 parts.append(label)
