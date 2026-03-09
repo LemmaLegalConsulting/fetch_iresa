@@ -1,6 +1,6 @@
-# fly.toml file generated for lemma_intake
+# fly.toml file for fetch_iresa
 
-app = "lemma-intake"
+app = "fetch-iresa"
 primary_region = "sjc"
 
 [http_service]
