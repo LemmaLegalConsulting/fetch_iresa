@@ -1,0 +1,5 @@
+general_hint: |
+  Placeholder hints for the IRESA taxonomy.
+  Replace this file and app/data/taxonomy_iresa.csv with the real IRESA taxonomy content.
+
+hints: {}

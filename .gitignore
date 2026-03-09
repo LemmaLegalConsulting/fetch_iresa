@@ -1,0 +1,11 @@
+.env
+app.log
+__pycache__
+promptfoo-errors.log
+cache/
+.venv
+venv
+node_modules
+.serverless
+.promptfoo
+.npm

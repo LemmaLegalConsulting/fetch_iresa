@@ -1,0 +1,12 @@
+fastapi
+uvicorn
+pydantic
+openai>=2.7.2
+pyyaml
+httpx
+tenacity>=8.2.0
+diskcache
+langfuse
+nltk
+textstat
+scireadability
