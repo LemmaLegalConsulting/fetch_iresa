@@ -1,6 +1,6 @@
 # Legal Classification Service
 
-A FastAPI-based multi-provider legal problem classification API that aggregates results from multiple LLM providers (OpenAI, Gemini, Mistral) and specialized classifiers (SPOT, keyword-based) using weighted voting.
+A FastAPI-based multi-provider legal problem classification API that aggregates results from multiple LLM providers (OpenAI, Gemini, Mistral) and a keyword-based classifier using weighted voting.
 
 ## Features
 
@@ -40,16 +40,14 @@ Required environment variables:
 | `OPENAI_API_KEY` | OpenAI API key |
 | `GEMINI_API_KEY` | Google Gemini API key |
 | `OPENROUTER_API_KEY` | OpenRouter API key (for Mistral) |
-| `SPOT_API_KEY` | SPOT taxonomy API key |
 | `API_TOKENS` | Comma-separated list of valid API tokens for authentication |
 | `ENV` | Set to `dev` to bypass authentication and serve the demo UI |
 
 ### 3. Place taxonomy files
 
-Place your taxonomy CSV files in `app/data/`.
+Place your taxonomy CSV file in `app/data/`.
 
-- Default taxonomy: `app/data/taxonomy.csv`
-- IRESA taxonomy placeholder: `app/data/taxonomy_iresa.csv`
+- IRESA taxonomy: `app/data/taxonomy_iresa.csv`
 
 This public copy intentionally omits the original private sample eval CSVs. Replace the tracked IRESA placeholder files in `app/data/` and `promptfoo/` with your local IRESA data before running evals.
 
@@ -91,9 +89,9 @@ Authorization: Bearer <your_api_token>
 ```json
 {
   "text": "My landlord refuses to return my security deposit after I moved out.",
-  "taxonomy_name": "default",
+  "taxonomy_name": "iresa",
   "decision_mode": "vote",
-  "enabled_models": ["gemini", "gpt-5.2", "keyword", "spot"],
+  "enabled_models": ["gemini", "gpt-5.2", "keyword"],
   "include_debug_details": false,
   "skip_semantic_merge": false
 }
@@ -102,7 +100,7 @@ Authorization: Bearer <your_api_token>
 | Field | Type | Default | Description |
 |-------|------|---------|-------------|
 | `text` | string | *required* | The legal problem description to classify |
-| `taxonomy_name` | string | `"default"` | Name of the taxonomy to use (`default`, `iresa`, or `list`) |
+| `taxonomy_name` | string | `"iresa"` | Name of the taxonomy to use (`iresa`) |
 | `decision_mode` | string | `"vote"` | `"vote"` for weighted voting, `"first"` for first successful result |
 | `enabled_models` | array | `null` | List of provider names to use. If null, uses configured defaults |
 | `include_debug_details` | boolean | `false` | Include raw provider results and weighted scores |
@@ -156,7 +154,6 @@ Authorization: Bearer <your_api_token>
 | OpenAI GPT-5.2 (Azure) | `gpt-5.2` | Azure OpenAI GPT-5.2 deployment |
 | Gemini | `gemini` | Google Gemini 2.5 Flash |
 | Mistral | `mistral` | Mistral Small via OpenRouter |
-| SPOT | `spot` | Suffolk LIT Lab SPOT taxonomy API |
 | Keyword | `keyword` | Simple keyword-based classifier |
 
 ## Configuration
@@ -168,20 +165,17 @@ CLASSIFIER_WEIGHTS = {
     "gemini": 0.9,
     "gpt-4.1-mini": 0.8,
     "gpt-5.2": 0.8,
-    "spot": 0.75,
     "keyword": 0.5,
 }
 
-ENABLED_CLASSIFIERS = ["gemini", "mistral", "keyword", "spot", "gpt-5.2"]
+ENABLED_CLASSIFIERS = ["gemini", "mistral", "keyword", "gpt-5.2"]
 ```
 
-Taxonomy files are mapped by name in `TAXONOMY_MAPPING`, including the IRESA placeholder:
+Taxonomy files are mapped by name in `TAXONOMY_MAPPING`:
 
 ```python
 TAXONOMY_MAPPING = {
-    "default": "app/data/taxonomy.csv",
     "iresa": "app/data/taxonomy_iresa.csv",
-    "list": "app/data/list-taxonomy.csv",
 }
 ```
 
@@ -222,7 +216,6 @@ app/
 │   ├── openai.py           # OpenAI provider
 │   ├── gemini.py           # Gemini provider
 │   ├── mistral.py          # Mistral provider
-│   ├── spot.py             # SPOT API provider
 │   └── keyword.py          # Keyword-based classifier
 ├── services/
 │   └── classification_service.py  # Orchestration and voting

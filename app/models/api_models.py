@@ -3,12 +3,12 @@ from typing import List, Optional, Dict, Any, Union
 
 
 class Label(BaseModel):
-    """A predicted taxonomy label with optional confidence and LIST ID."""
+    """A predicted taxonomy label with optional confidence and ID."""
 
     label: str
     confidence: Optional[float] = None
     id: Optional[str] = Field(
-        default=None, description="Optional LIST taxonomy ID (e.g., 'HO-00-00-00-00')"
+        default=None, description="Optional taxonomy identifier"
     )
 
 
@@ -43,17 +43,8 @@ class ClassificationRequest(BaseModel):
         ),
     )
     taxonomy_name: str = Field(
-        default="default",
-        description="Name of the taxonomy to use (e.g., 'default', 'list')",
-    )
-    taxonomy_format: str = Field(
-        default="osb",
-        description=(
-            "Output format for classification labels. Options: 'osb' (default OSB taxonomy), "
-            "'list' (LIST taxonomy codes). When taxonomy_format='list' and taxonomy_name='default', "
-            "results are converted from OSB to LIST codes using a mapping. When taxonomy_name='list', "
-            "classification is done directly against the LIST taxonomy."
-        ),
+        default="iresa",
+        description="Name of the taxonomy to use (currently: 'iresa')",
     )
     include_debug_details: bool = Field(
         default=False, description="Include full voting details in the response"

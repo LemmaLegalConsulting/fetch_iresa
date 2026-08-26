@@ -14,7 +14,7 @@ This eval checks follow-up question generation quality using:
 - Promptfoo installed (`promptfoo` or `npx promptfoo`)
 - API keys as needed:
   - `OPENAI_API_KEY` for the rubric grader (and for any enabled OpenAI providers)
-  - If you keep `enabled_providers` as-is, you may also need `GEMINI_API_KEY`, `OPENROUTER_API_KEY`, `SPOT_API_KEY`.
+  - If you keep `enabled_providers` as-is, you may also need `GEMINI_API_KEY` and `OPENROUTER_API_KEY`.
 
 ### Python deps for readability check
 

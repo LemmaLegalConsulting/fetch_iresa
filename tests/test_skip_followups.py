@@ -122,12 +122,12 @@ class TestClassificationRequestModel:
             skip_followups=True,
             decision_mode="first",
             include_debug_details=True,
-            taxonomy_name="list",
+            taxonomy_name="iresa",
         )
         assert request.skip_followups is True
         assert request.decision_mode == "first"
         assert request.include_debug_details is True
-        assert request.taxonomy_name == "list"
+        assert request.taxonomy_name == "iresa"
 
     def test_accepts_conversation_id(self):
         """Test that ClassificationRequest accepts an optional conversation_id."""

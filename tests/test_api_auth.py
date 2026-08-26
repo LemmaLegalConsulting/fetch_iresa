@@ -2,6 +2,7 @@ import pytest
 from fastapi.testclient import TestClient
 from app.main import app
 import os
+from unittest.mock import patch, AsyncMock
 
 client = TestClient(app)
 
@@ -47,3 +48,28 @@ def test_classify_valid_token():
         response.status_code == 200 or response.status_code == 422
     )  # 422 if validation error for request body, but 200 if it proceeds to service
     # Further assertions can be added here based on the expected response structure after successful authentication
+
+
+@patch(
+    "app.services.classification_service.ClassificationService.classify",
+    new_callable=AsyncMock,
+)
+def test_public_test_page_classification_no_auth(mock_classify):
+    mock_classify.return_value = {
+        "labels": [],
+        "follow_up_questions": [],
+        "likely_no_legal_problem": {
+            "value": False,
+            "weighted_result": 0.0,
+            "disagreement_score": 0.0,
+        },
+    }
+    response = client.get("/test?text=ich+brauche+hilfe+beim+jobcenter")
+    assert response.status_code == 200
+    assert "Raw Response" in response.text
+
+
+def test_public_test_page_no_auth():
+    response = client.get("/test")
+    assert response.status_code == 200
+    assert "IRESA Classifier Test" in response.text

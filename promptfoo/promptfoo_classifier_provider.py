@@ -103,7 +103,7 @@ async def call_api(
     config = options.get("config", {})
     enabled_providers = config.get("enabled_providers")
     decision_mode = config.get("decision_mode", "vote")
-    taxonomy_name = config.get("taxonomy_name", "default")
+    taxonomy_name = config.get("taxonomy_name", "iresa")
     include_debug_details = config.get("include_debug_details", False)
     cache_enabled = config.get("cache_enabled", False)
     cache_dir = config.get("cache_dir", "./cache")

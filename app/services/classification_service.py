@@ -15,7 +15,6 @@ from app.providers.openai import OpenAIProvider
 from app.providers.gemini import GeminiProvider
 from app.providers.mistral import MistralProvider
 from app.providers.keyword import KeywordClassifierProvider
-from app.providers.spot import SpotProvider
 from app.providers.openai import GPT41NanoProvider
 from app.providers.openai import GPT5Provider
 from app.providers.openai import GPT52Provider
@@ -31,13 +30,6 @@ from app.core.config import (
     OPENAI_SUPPORTS_REASONING_OBJECT,
     OPENAI_SUPPORTS_REASONING_EFFORT,
     OPENAI_SDK_VERSION,
-)
-from app.data.list_taxonomy import (
-    load_list_taxonomy_simple,
-    lookup_list_code_from_title,
-    convert_osb_label_to_list,
-    format_list_label,
-    get_list_code_to_title_mapping,
 )
 from app.utils.csv_helpers import read_csv_as_list_of_dicts, dedupe_and_clean_rows
 import asyncio
@@ -106,9 +98,14 @@ class ClassificationService:
                     azure_endpoint=azure_endpoint,
                 )
             else:
-                self.openai_client = AsyncOpenAI(
-                    api_key=os.environ.get("OPENAI_API_KEY")
-                )
+                openai_api_key = os.environ.get("OPENAI_API_KEY")
+                if openai_api_key:
+                    self.openai_client = AsyncOpenAI(api_key=openai_api_key)
+                else:
+                    logger.warning(
+                        "OPENAI_API_KEY not set; semantic merge client disabled. "
+                        "Service will run without LLM semantic merge."
+                    )
         self.cache_enabled = cache_enabled
         self._client_closed = False
         if self.cache_enabled:
@@ -207,7 +204,6 @@ class ClassificationService:
                 ("gemini", GeminiProvider),
                 ("mistral", MistralProvider),
                 ("keyword", KeywordClassifierProvider),
-                ("spot", SpotProvider),
                 ("gpt-41-nano", GPT41NanoProvider),
                 ("gpt-5", GPT5Provider),
                 ("gpt-5.2", GPT52Provider),
@@ -254,6 +250,8 @@ class ClassificationService:
           A deduplicated list of merged questions.
         """
         if self.offline_mode:
+            return questions
+        if self.openai_client is None:
             return questions
 
         if not questions:
@@ -867,7 +865,6 @@ class ClassificationService:
             "request_id": request_id,
             "problem_description": self._truncate_text(request.problem_description),
             "taxonomy_name": request.taxonomy_name,
-            "taxonomy_format": request.taxonomy_format,
             "decision_mode": request.decision_mode,
             "include_debug_details": request.include_debug_details,
             "skip_followups": request.skip_followups,
@@ -884,7 +881,6 @@ class ClassificationService:
         metadata = {
             "request_id": request_id,
             "taxonomy": request.taxonomy_name,
-            "taxonomy_format": request.taxonomy_format,
             "decision_mode": request.decision_mode,
             "skip_followups": request.skip_followups,
         }
@@ -917,34 +913,28 @@ class ClassificationService:
                 )
                 return response
 
-            # For LIST taxonomy, use the simplified version (Title column only)
-            # to avoid confusing LLMs with the codes
-            if request.taxonomy_name == "list":
-                taxonomy_df = load_list_taxonomy_simple()
-                logger.info("Using simplified LIST taxonomy (Title column only)")
-            else:
-                taxonomy_df = self.taxonomies.get(request.taxonomy_name)
+            taxonomy_df = self.taxonomies.get(request.taxonomy_name)
+            if taxonomy_df is None:
+                logger.info(
+                    f"Taxonomy '{request.taxonomy_name}' not preloaded; attempting to load from disk: {taxonomy_file}"
+                )
+                taxonomy_df = self._load_taxonomy(taxonomy_file)
                 if taxonomy_df is None:
-                    logger.info(
-                        f"Taxonomy '{request.taxonomy_name}' not preloaded; attempting to load from disk: {taxonomy_file}"
+                    response = ClassificationResponse(
+                        labels=[],
+                        follow_up_questions=(
+                            []
+                            if request.skip_followups
+                            else [
+                                FollowUpQuestion(
+                                    question="Taxonomy could not be loaded."
+                                )
+                            ]
+                        ),
                     )
-                    taxonomy_df = self._load_taxonomy(taxonomy_file)
-                    if taxonomy_df is None:
-                        response = ClassificationResponse(
-                            labels=[],
-                            follow_up_questions=(
-                                []
-                                if request.skip_followups
-                                else [
-                                    FollowUpQuestion(
-                                        question="Taxonomy could not be loaded."
-                                    )
-                                ]
-                            ),
-                        )
-                        return response
-                    with self._tax_lock:
-                        self.taxonomies[request.taxonomy_name] = taxonomy_df
+                    return response
+                with self._tax_lock:
+                    self.taxonomies[request.taxonomy_name] = taxonomy_df
 
             explicit_enabled_models = (
                 enabled_models if enabled_models is not None else request.enabled_models
@@ -964,7 +954,7 @@ class ClassificationService:
                     ]
                     logger.info(
                         "followup_answers present: defaulting to LLM providers only "
-                        "(excluding non-LLM providers like spot/keyword)"
+                        "(excluding non-LLM providers like keyword)"
                     )
 
             tasks = []
@@ -1068,17 +1058,6 @@ class ClassificationService:
                     skip_semantic_merge=request.skip_semantic_merge,
                 )
 
-            # Convert labels to LIST format if requested
-            # Automatically use LIST format if taxonomy_name is "list"
-            should_convert_to_list = (
-                request.taxonomy_format == "list" or request.taxonomy_name == "list"
-            )
-            if should_convert_to_list and response:
-                response = self._convert_labels_to_list_format(
-                    response,
-                    taxonomy_name=request.taxonomy_name,
-                )
-
             return response
         except Exception as exc:
             error = exc
@@ -1111,112 +1090,6 @@ class ClassificationService:
         except Exception as e:
             logger.error(f"Error loading taxonomy file {taxonomy_file}: {e}")
             return None
-
-    def _is_list_code_format(self, label: str) -> bool:
-        """Check if a label appears to already be in LIST code format.
-
-        LIST codes look like "FA-01-00-00-00 > Some Title" or just "FA-01-00-00-00".
-        """
-        import re
-
-        # LIST code pattern: 2 letters, dash, 2 digits, repeated 4 more times
-        pattern = r"^[A-Z]{2}-\d{2}-\d{2}-\d{2}-\d{2}"
-        return bool(re.match(pattern, label.strip()))
-
-    def _convert_labels_to_list_format(
-        self,
-        response: ClassificationResponse,
-        taxonomy_name: str,
-    ) -> ClassificationResponse:
-        """Convert classification labels to LIST taxonomy format.
-
-        Args:
-            response: The classification response with labels to convert.
-            taxonomy_name: The taxonomy that was used for classification.
-
-        Returns:
-            A new ClassificationResponse with labels converted to LIST codes.
-        """
-        if not response.labels:
-            return response
-
-        converted_labels = []
-        for label in response.labels:
-            original_label = label.label
-
-            # Extract LIST code from already-formatted label if present
-            list_code = None
-            if self._is_list_code_format(original_label):
-                # Extract code from "CODE > Title" format or just "CODE"
-                list_code = original_label.split(" > ")[0].strip()
-                converted_labels.append(
-                    Label(
-                        label=original_label,
-                        confidence=label.confidence,
-                        id=list_code,
-                    )
-                )
-                continue
-
-            if taxonomy_name == "list":
-                # Labels are LIST taxonomy titles, convert to codes
-                list_code = lookup_list_code_from_title(original_label)
-                if list_code:
-                    converted_labels.append(
-                        Label(
-                            label=format_list_label(list_code),
-                            confidence=label.confidence,
-                            id=list_code,
-                        )
-                    )
-                else:
-                    # Keep original if no mapping found (shouldn't happen often)
-                    logger.warning(f"No LIST code found for title: {original_label}")
-                    converted_labels.append(label)
-            else:
-                # Labels are OSB taxonomy, convert via mapping
-                result = convert_osb_label_to_list(original_label)
-                if result:
-                    list_code, list_title = result
-                    converted_labels.append(
-                        Label(
-                            label=format_list_label(list_code),
-                            confidence=label.confidence,
-                            id=list_code,
-                        )
-                    )
-                else:
-                    # No mapping exists - check if label might be a LIST title directly
-                    # (This can happen if a classifier returned LIST titles instead of OSB)
-                    list_code = lookup_list_code_from_title(original_label)
-                    if list_code:
-                        converted_labels.append(
-                            Label(
-                                label=format_list_label(list_code),
-                                confidence=label.confidence,
-                                id=list_code,
-                            )
-                        )
-                    else:
-                        # True unmapped label
-                        logger.info(f"No LIST mapping for OSB label: {original_label}")
-                        # Keep the original label but mark it as unmapped
-                        converted_labels.append(
-                            Label(
-                                label=f"(unmapped) {original_label}",
-                                confidence=label.confidence,
-                            )
-                        )
-
-        # Create a new response with converted labels
-        return ClassificationResponse(
-            labels=converted_labels,
-            follow_up_questions=response.follow_up_questions,
-            likely_no_legal_problem=response.likely_no_legal_problem,
-            raw_provider_results=response.raw_provider_results,
-            weighted_label_scores=response.weighted_label_scores,
-            weighted_question_scores=response.weighted_question_scores,
-        )
 
     async def _classify_with_telemetry(
         self,
@@ -1264,16 +1137,6 @@ class ClassificationService:
             # Pass followup_answers if provided for multi-turn refinement
             if request.followup_answers:
                 classify_kwargs["followup_answers"] = request.followup_answers
-
-            # Pass taxonomy_format to SPOT provider so it can return LIST codes directly
-            # Automatically use LIST format if taxonomy_name is "list"
-            if provider.instance_name == "spot":
-                taxonomy_format = (
-                    "list"
-                    if request.taxonomy_name == "list"
-                    else request.taxonomy_format
-                )
-                classify_kwargs["taxonomy_format"] = taxonomy_format
 
             try:
                 result = await asyncio.wait_for(

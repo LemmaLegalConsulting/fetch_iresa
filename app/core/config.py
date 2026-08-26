@@ -10,7 +10,6 @@ CLASSIFIER_WEIGHTS: Dict[str, float] = {
     "gpt-4.1-nano": 0.75,
     "gpt-5": 0.9,
     "gpt-5.2": 0.9,
-    "spot": 0.6,
     "keyword": 0.5,
     "mistral": 0.8,
 }
@@ -24,7 +23,6 @@ ENABLED_CLASSIFIERS: List[str] = [
     "gemini",
     "mistral",
     "keyword",
-    "spot",
     # "gpt-5",
     "gpt-5.2",
 ]
@@ -45,15 +43,12 @@ CLASSIFIER_TIMEOUT_SECONDS = _configured_timeout if _configured_timeout > 0 else
 
 # Mapping of taxonomy names to their respective file paths
 TAXONOMY_MAPPING: Dict[str, str] = {
-    "default": "app/data/taxonomy.csv",
     "iresa": "app/data/taxonomy_iresa.csv",
-    "list": "app/data/list-taxonomy.csv",
 }
 
 # Optional mapping of taxonomy names to hint files (YAML).
 # Missing or unreadable files are treated as "no hints".
 HINTS_MAPPING: Dict[str, str] = {
-    "default": "app/data/taxonomy_hints_default.yaml",
     "iresa": "app/data/taxonomy_hints_iresa.yaml",
 }
 

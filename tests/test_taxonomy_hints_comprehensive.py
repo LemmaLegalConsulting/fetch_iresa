@@ -5,7 +5,7 @@ Tests cover:
 - Loading hints with everything commented out
 - Loading hints with general_hint active
 - Loading hints with key-specific hints
-- Non-default taxonomies
+- IRESA taxonomy
 - Missing/non-existent taxonomy files
 - Edge cases (empty files, malformed YAML, etc.)
 """
@@ -40,11 +40,10 @@ class TestLoadHintsForTaxonomy:
     """Test loading hints from YAML files."""
 
     def test_load_hints_all_commented_out(self, monkeypatch):
-        """Test loading when all hints are commented out (returns empty)."""
-        # Use the actual default taxonomy file which is now all commented out
-        hints = load_hints_for_taxonomy("default")
+        """Test loading known taxonomy hints file."""
+        hints = load_hints_for_taxonomy("iresa")
         assert isinstance(hints, dict)
-        assert len(hints) == 0  # Should be empty since everything is commented out
+        assert len(hints) > 0
 
     def test_load_hints_missing_taxonomy(self):
         """Test loading a non-existent taxonomy."""
@@ -141,7 +140,9 @@ class TestBuildTaxonomyHintsBlock:
 
     def test_build_hints_empty_hints(self):
         """Test building when no hints are available."""
-        block = build_taxonomy_hints_block("default", ["Category A", "Category B"])
+        block = build_taxonomy_hints_block(
+            "non_existent_taxonomy", ["Category A", "Category B"]
+        )
         assert block == ""
 
     def test_build_hints_with_general_hint(self, tmp_path):
@@ -177,7 +178,7 @@ class TestBuildTaxonomyHintsBlock:
 
     def test_build_hints_empty_labels(self):
         """Test building with empty labels list."""
-        block = build_taxonomy_hints_block("default", [])
+        block = build_taxonomy_hints_block("iresa", [])
         assert block == ""
 
     def test_build_hints_duplicate_labels(self, tmp_path):
@@ -216,23 +217,17 @@ class TestBuildTaxonomyHintsBlock:
 class TestIntegration:
     """Integration tests for hints in the classification workflow."""
 
-    def test_default_taxonomy_with_commented_out_hints(self):
-        """Test that default taxonomy works even with all hints commented out."""
-        hints = load_hints_for_taxonomy("default")
-        assert hints == {}
-        
-        block = build_taxonomy_hints_block("default", [
-            "Real Property > Tenant (Residential)",
-            "Labor & Employment > General - Employee"
-        ])
-        assert block == ""  # No hints means empty block
+    def test_iresa_taxonomy_hints_available(self):
+        """Test that iresa taxonomy has hints configured."""
+        hints = load_hints_for_taxonomy("iresa")
+        assert hints
 
-    def test_list_taxonomy_no_hints_defined(self):
-        """Test that list taxonomy (no hints mapping) works gracefully."""
-        hints = load_hints_for_taxonomy("list")
+    def test_unknown_taxonomy_no_hints_defined(self):
+        """Test that unknown taxonomy (no hints mapping) works gracefully."""
+        hints = load_hints_for_taxonomy("unknown_taxonomy")
         assert hints == {}
         
-        block = build_taxonomy_hints_block("list", ["Some Category"])
+        block = build_taxonomy_hints_block("unknown_taxonomy", ["Some Category"])
         assert block == ""
 
     def test_hints_can_be_enabled_later(self, tmp_path):

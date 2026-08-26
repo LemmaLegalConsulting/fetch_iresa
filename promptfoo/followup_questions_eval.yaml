@@ -14,7 +14,7 @@ providers:
   - id: file://promptfoo_classifier_provider.py
     label: cheap-providers-ensemble
     config:
-      enabled_providers: ["gpt-5.2", "gemini", "mistral", "keyword", "spot"]
+      enabled_providers: ["gpt-5.2", "gemini", "mistral", "keyword"]
       decision_mode: "vote"
       taxonomy_name: "iresa"
       include_debug_details: false
