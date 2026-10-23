@@ -1,7 +1,7 @@
 fastapi
 uvicorn
 pydantic
-openai>=2.7.2
+openai>=3.35.1
 pyyaml
 httpx
 tenacity>=8.2.0
