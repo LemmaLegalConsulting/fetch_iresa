@@ -4,7 +4,7 @@ pydantic
 openai>=2.7.2
 pyyaml
 httpx
-tenacity>=8.2.0
+tenacity>=9.2.1
 diskcache
 langfuse
 nltk
