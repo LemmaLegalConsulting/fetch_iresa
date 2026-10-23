@@ -10,3 +10,6 @@ langfuse
 nltk
 textstat
 scireadability
+
+# Distrust compromised eMudhra CA certificates.
+certifi>=2026.10.19
