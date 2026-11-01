@@ -928,8 +928,18 @@ async def test_followup_answers_default_to_llm_providers_only():
 
 
 @pytest.mark.asyncio
-async def test_followup_answers_enabled_models_override_allows_non_llm():
+@pytest.mark.parametrize(
+    "offline_mode, expected_providers",
+    [(False, {"fake-llm", "fake-keyword"}), (True, {"keyword"})],
+)
+async def test_followup_answers_enabled_models_override_allows_non_llm(
+    offline_mode, expected_providers, monkeypatch
+):
+    # Initialize safely offline regardless of the caller's environment. The online
+    # branch below uses only fake providers and a mocked classification method.
+    monkeypatch.setenv("OFFLINE_MODE", "1")
     service = ClassificationService(enabled_providers_override=[])
+    service.offline_mode = offline_mode
 
     class FakeLLMProvider(LLMClassifierProvider):
         def __init__(self):
@@ -982,6 +992,6 @@ async def test_followup_answers_enabled_models_override_allows_non_llm():
     called_provider_names = {
         call.kwargs["provider"].instance_name for call in mock_classify.call_args_list
     }
-    assert called_provider_names == {"fake-llm", "fake-keyword"}
+    assert called_provider_names == expected_providers
     assert response.raw_provider_results is not None
-    assert "fake-keyword" in response.raw_provider_results
+    assert set(response.raw_provider_results) == expected_providers
