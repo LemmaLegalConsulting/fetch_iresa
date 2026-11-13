@@ -1,5 +1,5 @@
 # Use an official Python runtime as a parent image
-FROM python:3.12-slim
+FROM python:3.15-slim
 
 # eMudhra certificate incident: refresh each stage's system trust store.
 RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates \
