@@ -1,7 +1,6 @@
 import os
 import time
 from uuid import uuid4
-from openai import AsyncAzureOpenAI, AsyncOpenAI
 import json
 from app.models.api_models import (
     ClassificationRequest,
@@ -11,7 +10,7 @@ from app.models.api_models import (
     FollowUpAnswer,
 )
 from app.providers.base import ClassifierProvider, LLMClassifierProvider, load_prompt
-from app.providers.openai import OpenAIProvider
+from app.providers.openai import OpenAIProvider, create_openai_client
 from app.providers.gemini import GeminiProvider
 from app.providers.mistral import MistralProvider
 from app.providers.keyword import KeywordClassifierProvider
@@ -96,19 +95,7 @@ class ClassificationService:
         # Initialize OpenAI client for semantic merging (required dependency)
         self.openai_client = None
         if not self.offline_mode:
-            azure_endpoint = os.environ.get("OPENAI_BASE_URL_GPT_5_2")
-            azure_api_key = os.environ.get("OPENAI_GPT_5_2_API_KEY")
-            azure_api_version = os.environ.get("OPENAI_GPT_5_2_API_VERSION")
-            if azure_endpoint and azure_api_key and azure_api_version:
-                self.openai_client = AsyncAzureOpenAI(
-                    api_key=azure_api_key,
-                    api_version=azure_api_version,
-                    azure_endpoint=azure_endpoint,
-                )
-            else:
-                self.openai_client = AsyncOpenAI(
-                    api_key=os.environ.get("OPENAI_API_KEY")
-                )
+            self.openai_client = create_openai_client()
         self.cache_enabled = cache_enabled
         self._client_closed = False
         if self.cache_enabled:
@@ -205,13 +192,14 @@ class ClassificationService:
             provider_classes = [
                 ("openai", OpenAIProvider),
                 ("gemini", GeminiProvider),
-                ("mistral", MistralProvider),
                 ("keyword", KeywordClassifierProvider),
                 ("spot", SpotProvider),
                 ("gpt-41-nano", GPT41NanoProvider),
                 ("gpt-5", GPT5Provider),
                 ("gpt-5.2", GPT52Provider),
             ]
+            if os.getenv("AZURE_MISTRAL_MODEL", "").strip():
+                provider_classes.append(("mistral", MistralProvider))
             for name, provider_class in provider_classes:
                 try:
                     provider = provider_class()

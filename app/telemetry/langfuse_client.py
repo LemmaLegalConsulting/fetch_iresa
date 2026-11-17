@@ -28,6 +28,10 @@ def _get_langfuse_client() -> Optional[Langfuse]:
     """Return a singleton Langfuse client if credentials are configured."""
     global _langfuse_client, _client_disabled
 
+    if os.getenv("LANGFUSE_TRACING_ENABLED", "true").strip().lower() in {
+        "false", "0", "no", "off"
+    }:
+        return None
     if _client_disabled:
         return None
     if _langfuse_client:
@@ -78,7 +82,9 @@ def start_request_trace(
     if not client:
         return None
     try:
-        return client.start_span(name=name, input=input_payload, metadata=metadata)
+        return client.start_observation(
+            as_type="span", name=name, input=input_payload, metadata=metadata
+        )
     except Exception as exc:  # pragma: no cover - defensive
         logger.warning("Unable to start Langfuse request trace '%s': %s", name, exc)
         return None

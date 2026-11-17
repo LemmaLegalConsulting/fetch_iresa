@@ -39,10 +39,30 @@ Required environment variables:
 |----------|-------------|
 | `OPENAI_API_KEY` | OpenAI API key |
 | `GEMINI_API_KEY` | Google Gemini API key |
-| `OPENROUTER_API_KEY` | OpenRouter API key (for Mistral) |
+| `AZURE_MISTRAL_BASE_URL` | Azure Mistral OpenAI-compatible base URL; defaults to the GPT-5.2 endpoint |
+| `AZURE_MISTRAL_API_KEY` | Azure resource key; defaults to the GPT-5.2 key, then `OPENAI_API_KEY` |
+| `AZURE_MISTRAL_MODEL` | Exact Azure Mistral deployment name (required to enable Mistral) |
+| `ENABLED_CLASSIFIERS` | Optional comma-separated classifier names; use `mistral` to test only Mistral |
+| `LANGFUSE_TRACING_ENABLED` | Set to `false` to disable Langfuse telemetry |
 | `SPOT_API_KEY` | SPOT taxonomy API key |
 | `API_TOKENS` | Comma-separated list of valid API tokens for authentication |
 | `ENV` | Set to `dev` to bypass authentication and serve the demo UI |
+
+For Azure GPT-5.2, set `OPENAI_BASE_URL_GPT_5_2` to the full
+`https://<resource>.cognitiveservices.azure.com/openai/v1/` URL and
+`OPENAI_GPT_5_2_API_KEY` to that resource's key. The v1 endpoint needs no API
+version and falls back to `OPENAI_API_KEY` if the dedicated key is blank.
+For a versioned Azure resource endpoint, both `OPENAI_GPT_5_2_API_KEY` and
+`OPENAI_GPT_5_2_API_VERSION` are required. In either case,
+`OPENAI_GPT_5_2_MODEL` must match the Azure deployment name. If no GPT-5.2
+endpoint is configured, the provider uses public OpenAI with `OPENAI_API_KEY`.
+Mistral uses Azure with the settings above. For a shared resource, leave its
+endpoint/key blank to reuse the Azure GPT-5.2 settings, but set
+`AZURE_MISTRAL_MODEL` to the actual Mistral deployment name. Credentials alone
+do not deploy a model. An unconfigured Mistral provider is skipped at startup.
+Mistral is disabled by default. GPT-5.2 classification and follow-up question
+merging use `OPENAI_BASE_URL_GPT_5_2` with `OPENAI_API_KEY` when the dedicated
+GPT-5.2 key is blank. All OpenAI providers share this endpoint configuration.
 
 ### 3. Place taxonomy files
 
@@ -155,7 +175,7 @@ Authorization: Bearer <your_api_token>
 | OpenAI GPT-5 | `gpt-5` | OpenAI's GPT-5 model |
 | OpenAI GPT-5.2 (Azure) | `gpt-5.2` | Azure OpenAI GPT-5.2 deployment |
 | Gemini | `gemini` | Google Gemini 2.5 Flash |
-| Mistral | `mistral` | Mistral Small via OpenRouter |
+| Mistral | `mistral` | Mistral deployment on Azure |
 | SPOT | `spot` | Suffolk LIT Lab SPOT taxonomy API |
 | Keyword | `keyword` | Simple keyword-based classifier |
 

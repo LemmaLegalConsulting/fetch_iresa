@@ -22,12 +22,21 @@ ENABLED_CLASSIFIERS: List[str] = [
     # "gpt-4.1-mini",
     # "gpt-4.1-nano",
     "gemini",
-    "mistral",
+    # "mistral",  # Optional: requires an Azure Mistral deployment.
     "keyword",
     "spot",
     # "gpt-5",
     "gpt-5.2",
 ]
+
+# Allow local/provider-specific runs without editing the defaults above.
+_enabled_classifiers_override = os.getenv("ENABLED_CLASSIFIERS", "").strip()
+if _enabled_classifiers_override:
+    ENABLED_CLASSIFIERS = [
+        name.strip()
+        for name in _enabled_classifiers_override.split(",")
+        if name.strip()
+    ]
 
 _ALLOWED_GPT_5_REASONING_EFFORTS = {"none", "low", "medium", "high", "xhigh"}
 _configured_reasoning_effort = os.getenv("GPT_5_REASONING_EFFORT", "low").strip().lower()

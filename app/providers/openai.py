@@ -2,6 +2,7 @@ from app.providers.base import LLMClassifierProvider, load_prompt
 from app.models.api_models import Label
 from openai import AsyncAzureOpenAI, AsyncOpenAI
 import os
+from urllib.parse import urlparse
 from typing import Any, Dict, List, Literal, Optional
 
 if os.getenv("ENV") != "production":
@@ -28,6 +29,39 @@ logger = get_logger(__name__)
 GPT_5_FAMILY_MODELS = {"gpt-5", "gpt-5-mini", "gpt-5.2"}
 
 
+def create_openai_client():
+    """Use the configured Azure endpoint, or public OpenAI when none is set."""
+    azure_endpoint = os.environ.get("OPENAI_BASE_URL_GPT_5_2", "").strip()
+    azure_api_key = os.environ.get("OPENAI_GPT_5_2_API_KEY", "").strip()
+    azure_api_version = os.environ.get("OPENAI_GPT_5_2_API_VERSION", "").strip()
+
+    if azure_endpoint:
+        # Azure's v1 API uses the standard client and needs no api-version.
+        if urlparse(azure_endpoint).path.rstrip("/") == "/openai/v1":
+            api_key = azure_api_key or os.environ.get("OPENAI_API_KEY")
+            if not api_key:
+                raise ValueError(
+                    "Azure GPT-5.2 v1 requires OPENAI_GPT_5_2_API_KEY "
+                    "(or OPENAI_API_KEY)."
+                )
+            return AsyncOpenAI(
+                base_url=azure_endpoint, api_key=api_key, max_retries=0
+            )
+        if not azure_api_key or not azure_api_version:
+            raise ValueError(
+                "Azure GPT-5.2 requires OPENAI_GPT_5_2_API_KEY and "
+                "OPENAI_GPT_5_2_API_VERSION for a versioned resource endpoint; "
+                "alternatively use an endpoint ending in /openai/v1/."
+            )
+        return AsyncAzureOpenAI(
+            api_key=azure_api_key,
+            api_version=azure_api_version,
+            azure_endpoint=azure_endpoint,
+            max_retries=0,
+        )
+    return AsyncOpenAI(api_key=os.environ.get("OPENAI_API_KEY"), max_retries=0)
+
+
 class OpenAIProvider(LLMClassifierProvider):
     """Classifier provider backed by OpenAI Chat Completions."""
 
@@ -41,7 +75,7 @@ class OpenAIProvider(LLMClassifierProvider):
 
     def _get_client(self):
         """Create and return an AsyncOpenAI client using env credentials."""
-        return AsyncOpenAI(api_key=os.environ.get("OPENAI_API_KEY"), max_retries=0)
+        return create_openai_client()
 
     async def classify(
         self,
@@ -395,18 +429,3 @@ class GPT52Provider(OpenAIProvider):
     def __init__(self):
         """Use the Azure-configured `gpt-5.2` deployment name."""
         super().__init__(model_name=os.getenv("OPENAI_GPT_5_2_MODEL", "gpt-5.2"))
-
-    def _get_client(self):
-        """Create and return an AsyncAzureOpenAI or AsyncOpenAI client using env credentials."""
-        azure_endpoint = os.environ.get("OPENAI_BASE_URL_GPT_5_2")
-        azure_api_key = os.environ.get("OPENAI_GPT_5_2_API_KEY")
-        azure_api_version = os.environ.get("OPENAI_GPT_5_2_API_VERSION")
-        
-        if azure_endpoint and azure_api_key and azure_api_version:
-            return AsyncAzureOpenAI(
-                api_key=azure_api_key,
-                api_version=azure_api_version,
-                azure_endpoint=azure_endpoint,
-                max_retries=0,
-            )
-        return AsyncOpenAI(api_key=os.environ.get("OPENAI_API_KEY"), max_retries=0)

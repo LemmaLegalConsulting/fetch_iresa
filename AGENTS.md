@@ -36,7 +36,7 @@
 - PRs: clear description, linked issues, steps to validate (commands or curl), note config changes (`.env` keys like `API_TOKENS`, `OPENAI_API_KEY`), and update README/AGENTS if behavior changes.
 
 ## Security & Configuration Tips
-- Secrets: never commit `.env`. Copy `.env.example` and set `OPENAI_API_KEY`, `GEMINI_API_KEY`, `OPENROUTER_API_KEY`, and `API_TOKENS`.
+- Secrets: never commit `.env`. Copy `.env.example` and set `OPENAI_API_KEY`, `GEMINI_API_KEY`, Azure Mistral settings (`AZURE_MISTRAL_BASE_URL`, `AZURE_MISTRAL_API_KEY`, `AZURE_MISTRAL_MODEL`), and `API_TOKENS`.
 - Dev mode: set `ENV=dev` to bypass auth and serve `index.html` locally.
 - Data: place taxonomy files under `app/data/`; don’t commit proprietary datasets.
 - PromptFoo & local eval notes: see `promptfoo/README.md` (or create `docs/PROMPTFOO.md`) for venv/caching/run instructions.

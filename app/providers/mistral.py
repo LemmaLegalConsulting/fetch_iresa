@@ -17,16 +17,36 @@ from app.utils.json_helpers import parse_json_from_llm_response
 from app.utils.logging import get_logger
 from app.providers.utils import build_basic_telemetry, build_messages
 
+logger = get_logger(__name__)
+
 
 class MistralProvider(ClassifierProvider):
-    """Classifier provider that accesses Mistral via OpenRouter-compatible API."""
+    """Classifier provider that accesses an Azure-hosted Mistral deployment."""
 
     def __init__(self):
         """Initialize the Mistral provider and client from env credentials."""
         super().__init__("mistral")
+        endpoint = (
+            os.getenv("AZURE_MISTRAL_BASE_URL")
+            or os.getenv("OPENAI_BASE_URL_GPT_5_2")
+            or ""
+        ).strip()
+        api_key = (
+            os.getenv("AZURE_MISTRAL_API_KEY")
+            or os.getenv("OPENAI_GPT_5_2_API_KEY")
+            or os.getenv("OPENAI_API_KEY")
+            or ""
+        ).strip()
+        self.model_name = os.getenv("AZURE_MISTRAL_MODEL", "").strip()
+        if not endpoint or not api_key or not self.model_name:
+            raise ValueError(
+                "Azure Mistral requires AZURE_MISTRAL_MODEL (the deployment name), "
+                "AZURE_MISTRAL_BASE_URL and AZURE_MISTRAL_API_KEY. The endpoint "
+                "and key may also come from the existing Azure GPT-5.2 settings."
+            )
         self.client = AsyncOpenAI(
-            base_url="https://openrouter.ai/api/v1",
-            api_key=os.environ.get("OPENROUTER_API_KEY"),
+            base_url=endpoint,
+            api_key=api_key,
             max_retries=0,
         )
 
@@ -63,7 +83,7 @@ class MistralProvider(ClassifierProvider):
             # Use async client with backoff
             response = await run_with_backoff_async(
                 self.client.chat.completions.create,
-                model="mistralai/mistral-small-3.2-24b-instruct",
+                model=self.model_name,
                 messages=build_messages(prompt, problem_description, followup_answers),
                 temperature=0.0,
                 response_format={"type": "json_object"},
@@ -128,7 +148,7 @@ class MistralProvider(ClassifierProvider):
                 telemetry_payload = build_basic_telemetry(
                     provider=self.provider_type,
                     instance_name=self.instance_name,
-                    model_name="mistralai/mistral-small-3.2-24b-instruct",
+                    model_name=self.model_name,
                     response=last_response,
                     raw_content=content,
                 )
@@ -142,12 +162,11 @@ class MistralProvider(ClassifierProvider):
                 error_message = (
                     f"JSON decoding error from Mistral: {e} - Content: {content}"
                 )
-                logger = get_logger(__name__)
                 logger.error(error_message)
                 telemetry_payload = build_basic_telemetry(
                     provider=self.provider_type,
                     instance_name=self.instance_name,
-                    model_name="mistralai/mistral-small-3.2-24b-instruct",
+                    model_name=self.model_name,
                     response=last_response,
                     raw_content=content,
                 )
@@ -161,7 +180,6 @@ class MistralProvider(ClassifierProvider):
             import traceback
 
             error_message = f"An unexpected error occurred with Mistral: {e}"
-            logger = get_logger(__name__)
             logger.error(error_message)
             traceback.print_exc()
             rate_limited = any(
@@ -170,7 +188,7 @@ class MistralProvider(ClassifierProvider):
             telemetry_payload = build_basic_telemetry(
                 provider=self.provider_type,
                 instance_name=self.instance_name,
-                model_name="mistralai/mistral-small-3.2-24b-instruct",
+                model_name=self.model_name,
                 response=last_response,
                 raw_content=None,
             )

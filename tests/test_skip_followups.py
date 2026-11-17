@@ -7,7 +7,6 @@ from unittest.mock import patch, AsyncMock
 # Set up test environment before importing app modules
 os.environ.setdefault("OPENAI_API_KEY", "test-key")
 os.environ.setdefault("GEMINI_API_KEY", "test-key")
-os.environ.setdefault("OPENROUTER_API_KEY", "test-key")
 
 from fastapi.testclient import TestClient
 

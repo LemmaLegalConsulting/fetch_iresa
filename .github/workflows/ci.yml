@@ -44,7 +44,10 @@ jobs:
       OFFLINE_MODE: ${{ github.event.inputs.offline_mode || 'true' }}
       OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
       GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-      OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+      AZURE_MISTRAL_BASE_URL: ${{ secrets.AZURE_MISTRAL_BASE_URL }}
+      AZURE_MISTRAL_API_KEY: ${{ secrets.AZURE_MISTRAL_API_KEY }}
+      AZURE_MISTRAL_MODEL: ${{ secrets.AZURE_MISTRAL_MODEL }}
+      LANGFUSE_TRACING_ENABLED: "false"
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
