@@ -1,12 +1,15 @@
 fastapi
 uvicorn
 pydantic
-openai>=2.7.2
+openai>=3.49.0
 pyyaml
 httpx
-tenacity>=8.2.0
+tenacity>=9.2.1
 diskcache
 langfuse
 nltk
 textstat
 scireadability
+
+# Distrust compromised eMudhra CA certificates.
+certifi>=2026.10.23
